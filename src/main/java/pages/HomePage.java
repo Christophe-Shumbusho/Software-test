@@ -29,6 +29,15 @@ public class HomePage {
         removePopUp();
         return new DropdownLanguage(driver);
     }
+    public LoginPage clickSignIn(){
+        clickLink("JOIN US");
+        return new LoginPage(driver);
+    }
+    public MoreDropdownLink navMoreOptions(){
+        driver.findElement(By.cssSelector("#\\32 ")).click();
+        driver.findElement(By.cssSelector("#more-68 > li:nth-child(14) > a")).click();
+        return new MoreDropdownLink(driver);
+    }
     public BritishComputerSocietyPage clickBritishPage(){
         clickLink("British Computer Society");
         return new BritishComputerSocietyPage(driver);
