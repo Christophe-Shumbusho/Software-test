@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class LoginPage {
     private WebDriver driver;
-    //private By emailField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(1) > input");
+    private By emailField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(1) > input");
     private By passwordField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(2) > input");
     private By signInButton = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(5) > button");
     public LoginPage(WebDriver driver){
