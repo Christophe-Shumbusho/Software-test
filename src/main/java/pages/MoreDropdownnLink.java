@@ -2,9 +2,9 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class MoreDropdownLink {
+public class MoreDropdownnLink {
     private WebDriver driver;
-    public MoreDropdownLink(WebDriver driver){
+    public MoreDropdownnLink(WebDriver driver){
         this.driver = driver;
     }
 

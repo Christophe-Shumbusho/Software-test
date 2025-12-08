@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
 
 public class HomePage {
     private WebDriver driver;
@@ -34,10 +33,10 @@ public class HomePage {
         clickLink("JOIN US");
         return new LoginPage(driver);
     }
-    public MoreDropdownLink navMoreOptions(){
+    public MoreDropdownnLink navMoreOptions(){
         driver.findElement(By.cssSelector("#\\32 ")).click();
         driver.findElement(By.cssSelector("#more-68 > li:nth-child(14) > a")).click();
-        return new MoreDropdownLink(driver);
+        return new MoreDropdownnLink(driver);
     }
     public BritishComputerSocietyPage clickBritishPage(){
         clickLink("British Computer Society");
