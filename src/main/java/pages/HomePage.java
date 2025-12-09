@@ -50,4 +50,8 @@ public class HomePage {
         navPageLink.click();
         return new MultipleNavigationPage(driver);
     }
+    public AlertPage clickAlert(){
+        driver.findElement(By.linkText("+44 20 7946 0")).click();
+        return new AlertPage(driver);
+    }
 }
