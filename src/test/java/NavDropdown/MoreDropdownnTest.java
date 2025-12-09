@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class MoreDropdownnTest extends BaseTest {
     @Test
     public void testMoreDrop(){
-        homePage.removePopUp();
+        //homePage.removePopUp();
         var navMorePage = homePage.navMoreOptions();
     }
 }

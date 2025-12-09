@@ -2,11 +2,17 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage {
-    private WebDriver driver;
-    private By popup = By.cssSelector("#popup-widget183-close-icon");
+     WebDriver driver;
+
     public HomePage(WebDriver driver){
+
         this.driver = driver;
     }
 
@@ -14,20 +20,21 @@ public class HomePage {
         driver.findElement(By.linkText(linkText)).click();
 
     }
-    public void removePopUp(){
-        driver.findElement(popup).click();
-    }
+
     public JoinUsPage clickJoinUs(){
         clickLink("JOIN US");
         return new JoinUsPage(driver);
     }
+
     public CreateAccountPage clickCreateAccount(){
-        clickLink("Create account.");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("JOIN US"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Create account."))).click();
         return new CreateAccountPage(driver);
     }
-    public DropdownLanguage clickHome(){
-        removePopUp();
-        return new DropdownLanguage(driver);
+
+    public DropdownPage clickHome(){
+        return new DropdownPage(driver);
     }
     public LoginPage clickSignIn(){
         clickLink("JOIN US");
@@ -38,8 +45,9 @@ public class HomePage {
         driver.findElement(By.cssSelector("#more-68 > li:nth-child(14) > a")).click();
         return new MoreDropdownnLink(driver);
     }
-    public BritishComputerSocietyPage clickBritishPage(){
-        clickLink("British Computer Society");
-        return new BritishComputerSocietyPage(driver);
+    public MultipleNavigationPage clickNavigationPage(){
+        WebElement navPageLink = driver.findElement(By.cssSelector("a[href='https://www.bcs.org/']"));
+        navPageLink.click();
+        return new MultipleNavigationPage(driver);
     }
 }

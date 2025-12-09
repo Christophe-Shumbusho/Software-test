@@ -2,30 +2,35 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class CreateAccountPage {
     private WebDriver driver;
-    private By firstNameInputField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(1) > input ");
-    private By secondNameInputField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(2) > input");
-    private By emailInputField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(3) > input");
-    private By phoneInputField = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(4) > input");
-    private By createAccountButton = By.cssSelector("#bs-6 > span > div > div > div > form > div:nth-child(6) > button");
+    private WebDriverWait wait;
     public CreateAccountPage(WebDriver driver){
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
     public void setFirstName(String firstName){
-        driver.findElement(firstNameInputField).sendKeys(firstName);
+        driver.findElement(By.name("nameFirst")).sendKeys(firstName);
     }
     public void setLastName(String lastName){
-        driver.findElement(secondNameInputField).sendKeys(lastName);
+        driver.findElement(By.name("nameLast")).sendKeys(lastName);
     }
     public void setEmail(String email){
-        driver.findElement(emailInputField).sendKeys(email);
+        driver.findElement(By.name("email")).sendKeys(email);
     }
     public void setPhoneNumber(String phoneNumber){
-        driver.findElement(phoneInputField).sendKeys(phoneNumber);
+        driver.findElement(By.name("phone")).sendKeys(phoneNumber);
     }
     public void clickCreateButton(){
-        driver.findElement(createAccountButton).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button[data-ux='ButtonPrimary']"))).click();
+    }
+    public String getSuccessMessage() {
+        By messageLocator = By.cssSelector("p[data-aid='CREATE_ACCOUNT_DESCRIPTION_REND']");
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(messageLocator)).getText();
     }
 }

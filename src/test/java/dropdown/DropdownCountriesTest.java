@@ -3,20 +3,18 @@ package dropdown;
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.DropdownPage;
 
-import static org.testng.Assert.assertEquals;
-//
+import java.util.List;
 
 public class DropdownCountriesTest extends BaseTest {
     @Test
-    public void testDropdown(){
-    var dropdownPage = homePage.clickHome();
-    String text = "Bristol";
-    dropdownPage.selectFromCountry(text);
-    var selectedOptions = dropdownPage.getSelectedCountry();
-        Assert.assertEquals(selectedOptions.size(),1, "Incorrect number of selections");
+    public void testDropdownSelection() {
+        DropdownPage dropdownPage = new DropdownPage(driver);
 
+        dropdownPage.selectFromCountry("Bristol"); // Select the country
+        List<String> selected = dropdownPage.getSelectedCountry(); // Get selected value
 
+        Assert.assertTrue(selected.contains("Bristol"), "Dropdown did not select the expected country!");
     }
-
 }
