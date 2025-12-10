@@ -31,14 +31,14 @@ public class DropdownPage {
     }
 
     public void selectFromCountry(String countryName) {
-        switchToIframe(); // Step 1: enter iframe
-        scrollToDropdown(); // Step 2: scroll to dropdown
+        switchToIframe();
+        scrollToDropdown();
 
         WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownLocator));
         Select select = new Select(dropdown);
         select.selectByVisibleText(countryName);
 
-        driver.switchTo().defaultContent(); // Step 3: exit iframe
+        driver.switchTo().defaultContent();
     }
 
     public List<String> getSelectedCountry() {
