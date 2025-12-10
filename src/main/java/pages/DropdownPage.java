@@ -11,7 +11,7 @@ public class DropdownPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    // Locators
+
     private By iframeLocator = By.cssSelector("iframe[srcdoc]");
     private By dropdownLocator = By.id("tCounty");
 
