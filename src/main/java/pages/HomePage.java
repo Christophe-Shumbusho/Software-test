@@ -40,14 +40,10 @@ public class HomePage {
         clickLink("JOIN US");
         return new LoginPage(driver);
     }
-    public MoreDropdownnLink navMoreOptions(){
-        driver.findElement(By.cssSelector("#\\32 ")).click();
-        driver.findElement(By.cssSelector("#more-68 > li:nth-child(14) > a")).click();
-        return new MoreDropdownnLink(driver);
+    public MoreDropdownnLinkPage clickMore(){
+        return new MoreDropdownnLinkPage(driver);
     }
-    public MultipleNavigationPage clickNavigationPage(){
-        WebElement navPageLink = driver.findElement(By.cssSelector("a[href='https://www.bcs.org/']"));
-        navPageLink.click();
+    public MultipleNavigationPage clickNavPage(){
         return new MultipleNavigationPage(driver);
     }
     public AlertPage clickAlert(){

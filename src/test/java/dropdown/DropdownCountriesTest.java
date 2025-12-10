@@ -12,8 +12,8 @@ public class DropdownCountriesTest extends BaseTest {
     public void testDropdownSelection() {
         DropdownPage dropdownPage = new DropdownPage(driver);
 
-        dropdownPage.selectFromCountry("Bristol"); // Select the country
-        List<String> selected = dropdownPage.getSelectedCountry(); // Get selected value
+        dropdownPage.selectFromCountry("Bristol");
+        List<String> selected = dropdownPage.getSelectedCountry();
 
         Assert.assertTrue(selected.contains("Bristol"), "Dropdown did not select the expected country!");
     }

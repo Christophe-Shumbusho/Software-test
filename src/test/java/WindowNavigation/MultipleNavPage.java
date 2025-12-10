@@ -15,7 +15,8 @@ import java.time.Duration;
 public class MultipleNavPage extends BaseTest {
     @Test
     public void testWindowNavigation(){
-        var navPage = homePage.clickNavigationPage();
+        var navPage = homePage.clickNavPage();
+        navPage.clickNavigationPage();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement body = wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.tagName("body")
