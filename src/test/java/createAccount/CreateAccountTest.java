@@ -1,13 +1,12 @@
 package createAccount;
 
 import base.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CreateAccountTest extends BaseTest {
     @Test
     public void testCreateAccount(){
-        homePage.removePopUp();
-        var joinpage = homePage.clickJoinUs();
         var createAccount = homePage.clickCreateAccount();
         createAccount.setFirstName("Christophe");
         createAccount.setLastName("Shumbusho");
@@ -15,5 +14,12 @@ public class CreateAccountTest extends BaseTest {
         createAccount.setPhoneNumber("0792452911");
         createAccount.clickCreateButton();
 
-    }
+        String success = createAccount.getSuccessMessage();
+        //System.out.println(success);
+
+        Assert.assertTrue(success.contains("By creating an account"),
+                "success message was not found");
+
+
+  }
 }
